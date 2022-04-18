@@ -1,5 +1,5 @@
 global relationship : table[addr] of set[string] = table();
-event http_all_header (c: connection, is_orig: bool, hlist:mime_header_list)
+event http_all_headers (c: connection, is_orig: bool, hlist:mime_header_list)
 {
 if(c$http?$user_agent)
 {
