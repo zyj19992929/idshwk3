@@ -18,12 +18,17 @@ relationship[sourceIP]=set(agent);
 
 event zeek_done() 
 {
+local temp = 0;
 for (ip in relationship) 
 {
 if (|relationship[ip]| > 2)
 {
 print fmt("%s is a proxy", ip);
+temp = 1;
 }
 }
+if(temp == 0)
+{
+print "no proxy";
 }
-
+}
